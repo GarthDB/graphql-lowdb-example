@@ -1,15 +1,13 @@
-import {
-  GraphQLList,
-} from 'graphql';
+import { GraphQLList } from "graphql";
 
-import channelType from '../../types/channel';
+import channelType from "../../types/channel.js";
 
-import db from './../../../db';
+import db from "./../../../db.js";
 
 export default {
   type: new GraphQLList(channelType),
   args: {},
   resolve(root, params) {
-    return db('channel').value();
+    return db.data.channels;
   },
 };

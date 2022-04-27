@@ -3,12 +3,14 @@ import {
   GraphQLNonNull,
   GraphQLString,
   GraphQLID,
-} from 'graphql';
+} from "graphql";
 
-import ChannelType from './channel';
+import ChannelType from "./channel.js";
+
+import db from "./../../db.js";
 
 export default new GraphQLObjectType({
-  name: 'Article',
+  name: "Article",
   fields: {
     id: {
       type: new GraphQLNonNull(GraphQLID),
@@ -27,6 +29,11 @@ export default new GraphQLObjectType({
     },
     channel: {
       type: ChannelType,
+      resolve(parent) {
+        return db.data.channels.find(
+          (channel) => channel.id === parent.channel_id
+        );
+      },
     },
     status: {
       type: GraphQLString,
@@ -42,21 +49,3 @@ export default new GraphQLObjectType({
     },
   },
 });
-
-/**
- author_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
- user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
- channel_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
- tags: {
-    type: Array,
-  },
- */

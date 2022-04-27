@@ -1,5 +1,5 @@
-import channel from './single';
-import channels from './multiple';
+import channel from "./single.js";
+import channels from "./multiple.js";
 
 export default {
   channel,

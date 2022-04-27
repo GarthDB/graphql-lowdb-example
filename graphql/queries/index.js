@@ -1,7 +1,7 @@
-import article from './article';
-import channel from './channel';
+import article from "./article/index.js";
+import channel from "./channel/index.js";
 
 export default {
   ...article,
-  ...channel
+  ...channel,
 };

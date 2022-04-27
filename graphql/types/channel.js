@@ -3,10 +3,10 @@ import {
   GraphQLNonNull,
   GraphQLString,
   GraphQLID,
-} from 'graphql';
+} from "graphql";
 
 export default new GraphQLObjectType({
-  name: 'Channel',
+  name: "Channel",
   fields: {
     id: {
       type: new GraphQLNonNull(GraphQLID),

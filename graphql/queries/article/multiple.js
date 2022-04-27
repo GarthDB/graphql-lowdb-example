@@ -1,15 +1,13 @@
-import {
-  GraphQLList,
-} from 'graphql';
+import { GraphQLList } from "graphql";
 
-import articleType from '../../types/article';
+import articleType from "../../types/article.js";
 
-import db from './../../../db';
+import db from "./../../../db.js";
 
 export default {
   type: new GraphQLList(articleType),
   args: {},
   resolve(root, params) {
-    return db('article').value();
+    return db.data.articles;
   },
 };

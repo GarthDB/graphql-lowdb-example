@@ -3,10 +3,10 @@ import {
   GraphQLNonNull,
   GraphQLString,
   GraphQLID,
-} from 'graphql';
+} from "graphql";
 
 export default new GraphQLInputObjectType({
-  name: 'ChannelInput',
+  name: "ChannelInput",
   fields: {
     id: {
       type: new GraphQLNonNull(GraphQLID),
